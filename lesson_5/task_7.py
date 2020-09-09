@@ -21,7 +21,8 @@ with open('task7.txt', 'r', encoding='utf-8') as task7:
         temp = i.split()
         temp.pop(1)  # Вырезаем лишнее значение (не требуется по условиям задачи)
         firm_dict[temp[0]] = int(temp[1]) - int(temp[2])  # Добавляем фирму с доходом\убытком в словарь
-        profit_dict['average_profit'].append(int(temp[1]) - int(temp[2]))  # Добавляем значение дохода\убытка в словарь
+        if int(temp[1]) - int(temp[2]) >= 0:
+            profit_dict['average_profit'].append(int(temp[1]) - int(temp[2]))  # Добавляем значение дохода\убытка в словарь
         # чтобы потом подсчитать среднее значение
 profit_dict['average_profit'] = statistics.mean(profit_dict['average_profit'])  # подсчет среднего значения
 new_list = [firm_dict, profit_dict]  #
